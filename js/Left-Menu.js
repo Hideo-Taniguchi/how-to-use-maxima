@@ -3,7 +3,7 @@ document.write('<div class="pure-menu">');
 document.write('<span class="pure-menu-heading">Maxima</span>');
 document.write('<ul class="pure-menu-list">');
 document.write('<li class="pure-menu-item"><a href="index.html" class="pure-menu-link">導入編</a></li>');
-document.write('<li class="pure-menu-item"><a href="programming.html" class="pure-menu-link">初歩</a></li>');
+document.write('<li class="pure-menu-item"><a href="begining.html" class="pure-menu-link">初歩</a></li>');
 document.write('<li class="pure-menu-item"><a href="graph_making.html" class="pure-menu-link">初級編</a></li>');
 document.write('<li class="pure-menu-item"><a href="logical_thinking.html" class="pure-menu-link">式の整形事例集</a></li>');
 document.write('</ul>');

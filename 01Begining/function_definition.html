@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>function_definition</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="function_definition_htmlimg/function_definition.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*数学の関数の定義には，「:=」(コロンイコール)を使う．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span> <span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_variable">a</span><span class="code_operator">·</span><span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span> <span class="code_operator">+</span> <span class="code_variable">b</span><span class="code_operator">·</span><span class="code_variable">x</span> <span class="code_operator">+</span> <span class="code_variable">c</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<mi>a</mi>
+<mo>&#8290;</mo>
+<msup><mi>x</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<mi>b</mi>
+<mo>&#8290;</mo>
+<mi>x</mi>
+<mo>+</mo>
+<mi>c</mi>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*係数(a,b,c)の設定*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">a</span><span class="code_operator">:</span> <span class="code_number">1</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">b</span><span class="code_operator">:</span> <span class="code_number">2</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">c</span><span class="code_operator">:</span> <span class="code_number">1</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(a)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(b)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>2</mn>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(c)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i5)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*関数f(x)の確認*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o5)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msup><mi>x</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<mn>2</mn>
+<mo>&#8290;</mo>
+<mi>x</mi>
+<mo>+</mo>
+<mn>1</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i6)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_number">3</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o6)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>16</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i7)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*変数a,b,cと関数f(x)の設定を解除 (f(x)の定義の解除は，単にfだけで良い．)*/</span><span class="code_endofline"><br>
+</span><span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">a</span><span class="code_endofline">,</span> <span class="code_variable">b</span><span class="code_endofline">,</span> <span class="code_variable">c</span><span class="code_endofline">,</span> <span class="code_variable">f</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o7)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i8)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*関数f(x)の再定義*/</span><span class="code_endofline"><br>
+</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span> <span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_variable">a</span><span class="code_operator">·</span><span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">3</span> <span class="code_operator">+</span> <span class="code_variable">b</span><span class="code_operator">·</span><span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span> <span class="code_operator">+</span> <span class="code_variable">c</span><span class="code_operator">·</span><span class="code_variable">x</span> <span class="code_operator">+</span> <span class="code_variable">d</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o8)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<mi>a</mi>
+<mo>&#8290;</mo>
+<msup><mi>x</mi>
+<mn>3</mn>
+</msup>
+<mo>+</mo>
+<mi>b</mi>
+<mo>&#8290;</mo>
+<msup><mi>x</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<mi>c</mi>
+<mo>&#8290;</mo>
+<mi>x</mi>
+<mo>+</mo>
+<mi>d</mi>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i12)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*係数(a,b,c,d)の設定*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">a</span><span class="code_operator">:</span> <span class="code_number">2</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">b</span><span class="code_operator">:</span> <span class="code_number">1</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">c</span><span class="code_operator">:</span> <span class="code_number">3</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">d</span><span class="code_operator">:</span> <span class="code_operator">−</span><span class="code_number">5</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(a)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>2</mn>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(b)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(c)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>3</mn>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(d)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mn>5</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i13)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*関数f(x)の確認*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o13)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mn>2</mn>
+<mo>&#8290;</mo>
+<msup><mi>x</mi>
+<mn>3</mn>
+</msup>
+<mo>+</mo>
+<msup><mi>x</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<mn>3</mn>
+<mo>&#8290;</mo>
+<mi>x</mi>
+<mo>-</mo><mn>5</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i14)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o14)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>21</mn>
+</math>
+</div>
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="function_definition_htmlimg/function_definition.wxmx">here</a>.</small>
+ </body>
+</html>

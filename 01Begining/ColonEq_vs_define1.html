@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>ColonEq_vs_define1</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="ColonEq_vs_define1_htmlimg/ColonEq_vs_define1.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*数学の関数の定義には，演算子「:=」だけでなく，define関数も利用できる．</span><span class="code_comment"><br>
+</span><span class="code_comment">しかし，この２つには，定義時に「式を評価しない／評価する」の違いがある．*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
+</span><span class="code_comment">演算子「:=」を用いると，途中でエラーになる例</span><span class="code_comment"><br>
+</span><span class="code_comment">－－－－－－－－－－－－－－－－－－－－－－*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【留意点】 関数定義で用いる演算子「:=」は，定義の際に右辺の式を評価しない．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">g</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span> <span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_function">diff</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*「x^2」のxによる微分*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>g</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<mrow><mfrac><mi>d</mi>
+<mrow><mi>d</mi>
+<mo>&#8290;</mo>
+<mi>x</mi>
+</mrow>
+</mfrac>
+<mrow><mo>&#8290;</mo>
+<msup><mi>x</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+</mrow>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*g(x)の右辺の式が評価されていないので，g(2)とすると「x」が「2」に置き換わり，</span><span class="code_comment"><br>
+</span><span class="code_comment">「2」の微分と判断され，計算エラーになる．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">g</span><span class="code_operator">(</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="left">
+<mtr><mtd><mtext></mtext></mtd><mtd><mo>diff: second argument must be a variable; found </mo>
+<mn>2</mn>
+</mtd></mtr>
+<mtr columnalign="left"><mtd><mtext></mtext></mtd><mtd><mo>#0: g(x=2)</mo>
+</mtd></mtr>
+<mtr columnalign="left"><mtd><mtext></mtext></mtd><mtd><mo> -- an error. To debug this try: debugmode(true);</mo>
+</mtd></mtr>
+</mtable></math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*define関数は，定義の際に第２引数の式を評価する．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">define</span><span class="code_operator">(</span><span class="code_function">h</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_function">diff</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>h</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<mn>2</mn>
+<mo>&#8290;</mo>
+<mi>x</mi>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*h(x)の関数の形がすでに定まっているので，h(2)の計算が可能．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">h</span><span class="code_operator">(</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>4</mn>
+</math>
+</div>
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="ColonEq_vs_define1_htmlimg/ColonEq_vs_define1.wxmx">here</a>.</small>
+ </body>
+</html>

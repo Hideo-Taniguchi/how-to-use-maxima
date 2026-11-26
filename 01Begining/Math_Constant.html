@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Math_Constant</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="Math_Constant_htmlimg/Math_Constant.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*Maximaにおける数学定数*/</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*円周率πは，「%pi」である．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">sin</span><span class="code_operator">(</span><span class="code_variable">%pi</span><span class="code_operator">/</span><span class="code_number">3</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*sin(π/3)*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><msqrt><mn>3</mn>
+</msqrt>
+<mn>2</mn>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*ネイピア数（自然対数の底）e は，「%e」である．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">log</span><span class="code_operator">(</span><span class="code_variable">%e</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i6)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*虚数単位は，「%i」である．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">%i</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o6)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mn>1</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i7)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*正の実無限大∞は，「inf」である． */</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_number">1</span><span class="code_operator">/</span><span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*lim(1/x)_{x→∞}*/</span><span class="code_endofline"><br>
+</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o7)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>0</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i8)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*負の実無限大-∞は，「minf」である． */</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">%e</span><span class="code_operator">^</span><span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_operator">−</span><span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*lim(e^x)_{x→-∞}*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o8)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>0</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝</span><span class="code_comment"><br>
+</span><span class="code_comment">【その他】これ以降は，正しく数学の計算を行っていれば，</span><span class="code_comment"><br>
+</span><span class="code_comment">　　　あまりお目に掛からないようなもの．</span><span class="code_comment"><br>
+</span><span class="code_comment">＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i9)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*複素無限大，任意の偏角で無限大：「infinity」*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_operator">(</span><span class="code_operator">−</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_operator">^</span><span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*lim((-2)^x)_{x→∞}*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o9)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>infinity</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i12)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*不定だが，有界：「ind」*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_operator">(</span><span class="code_operator">−</span><span class="code_number">1</span><span class="code_operator">)</span><span class="code_operator">^</span><span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*lim((-1)^x)_{x→∞}*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o12)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>ind</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*定義されない，もしくは不明：「und」</span><span class="code_comment"><br>
+</span><span class="code_comment">(過去にはundと表示された計算結果は，最近は，infinityかindになるようだ．)*/</span>  </span></td>
+</tr></table>
+
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="Math_Constant_htmlimg/Math_Constant.wxmx">here</a>.</small>
+ </body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Equal_Symbol</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="Equal_Symbol_htmlimg/Equal_Symbol.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*Maximaにおける「=」(イコール)は，「方程式を表す演算子」である．</span><span class="code_comment"><br>
+</span><span class="code_comment">方程式を作るときだけ，「=」(イコール)を使用する．*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*方程式Eq1を作成．(方程式も変数Eq1に代入できる)*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">Eq1</span><span class="code_operator">:</span> <span class="code_variable">x</span> <span class="code_operator">+</span> <span class="code_number">7</span> <span class="code_operator">=</span> <span class="code_number">13</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(Eq1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>x</mi>
+<mo>+</mo>
+<mn>7</mn>
+<mo>=</mo>
+<mn>13</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*方程式Eq1をxについて解く．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">solve</span><span class="code_operator">(</span><span class="code_variable">Eq1</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>x</mi>
+<mo>=</mo>
+<mn>6</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*方程式の両辺に対する操作も可能*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">Eq1</span> <span class="code_operator">·</span> <span class="code_number">2</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mn>2</mn>
+<mo>&#8290;</mo>
+<mrow><mo>(</mo><mrow><mi>x</mi>
+<mo>+</mo>
+<mn>7</mn>
+</mrow>
+<mo>)</mo></mrow>
+<mo>=</mo>
+<mn>26</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">all</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*全変数の設定解除*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o0)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*方程式Eq1, Eq2を作成．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">Eq1</span><span class="code_operator">:</span> <span class="code_number">3</span><span class="code_operator">·</span><span class="code_variable">x</span> <span class="code_operator">−</span> <span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">y</span> <span class="code_operator">=</span> <span class="code_operator">−</span><span class="code_number">1</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">Eq2</span><span class="code_operator">:</span> <span class="code_operator">−</span><span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">x</span> <span class="code_operator">+</span> <span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">y</span> <span class="code_operator">=</span> <span class="code_number">4</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(Eq1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mn>3</mn>
+<mo>&#8290;</mo>
+<mi>x</mi>
+<mo>-</mo><mn>2</mn>
+<mo>&#8290;</mo>
+<mi>y</mi>
+<mo>=</mo>
+<mo>-</mo><mn>1</mn>
+</mrow>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(Eq2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mn>2</mn>
+<mo>&#8290;</mo>
+<mi>y</mi>
+<mo>-</mo><mn>2</mn>
+<mo>&#8290;</mo>
+<mi>x</mi>
+<mo>=</mo>
+<mn>4</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*Eq1とEq2の連立方程式を解く．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">Sol</span><span class="code_operator">:</span> <span class="code_function">solve</span><span class="code_operator">(</span><span class="code_operator">[</span><span class="code_variable">Eq1</span><span class="code_endofline">,</span> <span class="code_variable">Eq2</span><span class="code_operator">]</span><span class="code_endofline">,</span> <span class="code_operator">[</span><span class="code_variable">x</span><span class="code_endofline">,</span> <span class="code_variable">y</span><span class="code_operator">]</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(Sol)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mo>[</mo><mrow><mi>x</mi>
+<mo>=</mo>
+<mn>3</mn>
+<mi>,</mi>
+<mi>y</mi>
+<mo>=</mo>
+<mn>5</mn>
+</mrow>
+<mo>]</mo></mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i6)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【留意点１】solve関数の出力結果は，リスト形式である．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">Sol</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">Sol</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">Sol</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>x</mi>
+<mo>=</mo>
+<mn>3</mn>
+<mi>,</mi>
+<mi>y</mi>
+<mo>=</mo>
+<mn>5</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o5)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>x</mi>
+<mo>=</mo>
+<mn>3</mn>
+</mrow>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o6)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>y</mi>
+<mo>=</mo>
+<mn>5</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i8)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【留意点２】Solve関数で方程式を解いても，xやyには値は代入されていない．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">x</span> <span class="code_operator">+</span> <span class="code_number">2</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">y</span> <span class="code_operator">·</span> <span class="code_number">2</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o7)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>x</mi>
+<mo>+</mo>
+<mn>2</mn>
+</mrow>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o8)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mn>2</mn>
+<mo>&#8290;</mo>
+<mi>y</mi>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i10)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【留意点３】Solve関数で方程式を解いた結果をxやyに値として持たせたい場合は，</span><span class="code_comment"><br>
+</span><span class="code_comment">　　　　　　計算結果を代入する作業が必要になる．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">x</span><span class="code_operator">:</span> <span class="code_variable">Sol</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_endofline">;</span><span class="code_endofline"><br>
+</span><span class="code_variable">y</span><span class="code_operator">:</span> <span class="code_variable">Sol</span><span class="code_operator">[</span><span class="code_number">1</span><span class="code_operator">]</span><span class="code_operator">[</span><span class="code_number">2</span><span class="code_operator">]</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(x)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>x</mi>
+<mo>=</mo>
+<mn>3</mn>
+</mrow>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(y)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>y</mi>
+<mo>=</mo>
+<mn>5</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i11)	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">x</span> <span class="code_operator">+</span> <span class="code_variable">y</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o11)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>y</mi>
+<mo>+</mo>
+<mi>x</mi>
+<mo>=</mo>
+<mn>8</mn>
+</mrow>
+</math>
+</div>
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="Equal_Symbol_htmlimg/Equal_Symbol.wxmx">here</a>.</small>
+ </body>
+</html>

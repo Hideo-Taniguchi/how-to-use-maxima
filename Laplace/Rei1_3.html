@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Rei1_3</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="Rei1_3_htmlimg/Rei1_3.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 1:
+<br>
+  <img src="Rei1_3_htmlimg/Rei1_3_0.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_number">1</span><span class="code_operator">/</span><span class="code_function">sqrt</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*関数の定義*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>t</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<mfrac><mn>1</mn>
+<msqrt><mi>t</mi>
+</msqrt>
+</mfrac>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*関数f(t)のラプラス変換*/</span><span class="code_endofline"><br>
+</span><span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><msqrt><mi>π</mi>
+</msqrt>
+<msqrt><mi>s</mi>
+</msqrt>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【コメント】教科書p6のような解き方をしなくても，Maximaだと</span><span class="code_comment"><br>
+</span><span class="code_comment">コマンド１行でラプラス変換の結果が得られる．*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="Rei1_3_htmlimg/Rei1_3.wxmx">here</a>.</small>
+ </body>
+</html>

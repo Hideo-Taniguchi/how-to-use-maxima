@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Rei1_1</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="Rei1_1_htmlimg/Rei1_1.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Subsubsection cell -->
+
+
+<div class="subsubsect">
+<p>
+  0.0.1 Maximaのラプラス変換の関数より計算する場合
+</p>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
+</span><span class="code_comment">ラプラス変換：lapace(式, t, s)</span><span class="code_comment"><br>
+</span><span class="code_comment">　(式は変数tに関するもの．sはラプラス変換のパラメーター．)</span><span class="code_comment"><br>
+</span><span class="code_comment">－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*ここでは，Maximaのlaplace関数でラプラス変換を求める方法を示します．</span><span class="code_comment"><br>
+</span><span class="code_comment">この方法では，「ラプラス変換が存在するsの範囲」が自明であるため，</span><span class="code_comment"><br>
+</span><span class="code_comment">それを説明することはできません．*/</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 1:
+<br>
+  <img src="Rei1_1_htmlimg/Rei1_1_0.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mn>1</mn>
+<mi>s</mi>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 2:
+<br>
+  <img src="Rei1_1_htmlimg/Rei1_1_2.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【注意】Maximaでは，ヘビサイドの単位関数の時間のズレλについて，</span><span class="code_comment"><br>
+</span><span class="code_comment">assume(λ&gt;=0)とすると，ラプラス変換において，「IS λ negative or zero?」</span><span class="code_comment"><br>
+</span><span class="code_comment">と尋ねられ，λ&gt;0の条件が有効にならない．いわゆる，バグ．それにより，</span><span class="code_comment"><br>
+</span><span class="code_comment">模範解答の答えが得られないので，0を含めずに，assume(λ&gt;0)とする．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span> <span class="code_endofline">;</span> <span class="code_comment">/*定数の仮定*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>λ</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">hstep</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">−</span><span class="code_variable">λ</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><msup><mi>%e</mi>
+<mrow><mo>-</mo>
+<mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>λ</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</msup>
+<mi>s</mi>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 3:
+<br>
+  <img src="Rei1_1_htmlimg/Rei1_1_5.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_operator">(</span><span class="code_function">forget</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_function">facts</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*問(2)の「λ&gt;0」の条件を削除し，確認する．*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o5)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>kind</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>λ</mi>
+<mi>,</mi>
+<mi>real</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_variable">%e</span><span class="code_operator">^</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o6)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mn>1</mn>
+<mrow><mi>s</mi>
+<mo>-</mo><mi>λ</mi>
+</mrow>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 4:
+<br>
+  <img src="Rei1_1_htmlimg/Rei1_1_8.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_operator">−</span><span class="code_number">1</span><span class="code_operator">)</span> <span class="code_endofline">;</span> <span class="code_comment">/*定数の仮定*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o7)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>λ</mi>
+<mo>&gt;</mo><mo>-</mo><mn>1</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">^</span><span class="code_variable">λ</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o8)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msup><mi>s</mi>
+<mrow><mo>-</mo><mi>λ</mi>
+<mo>-</mo><mn>1</mn>
+</mrow>
+</msup>
+<mo>&#8290;</mo>
+<mrow><mi>Γ</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>λ</mi>
+<mo>+</mo>
+<mn>1</mn>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">n</span><span class="code_endofline">,</span> <span class="code_variable">integer</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*nを整数として宣言*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o9)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">n</span><span class="code_endofline">&gt;</span><span class="code_operator">=</span><span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*nを0以上と仮定*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o10)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>n</mi>
+<mi>≥</mi>
+<mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">^</span><span class="code_variable">n</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o11)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>Γ</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>n</mi>
+<mo>+</mo>
+<mn>1</mn>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+<mo>&#8290;</mo>
+<msup><mi>s</mi>
+<mrow><mo>-</mo><mi>n</mi>
+<mo>-</mo><mn>1</mn>
+</mrow>
+</msup>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【コメント】 nが整数で，n≧0だとしても，Maximaでは，Γ(n+1)は，n!には変換されない．*/</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 5:
+<br>
+  <img src="Rei1_1_htmlimg/Rei1_1_14.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_operator">(</span><span class="code_function">forget</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_operator">−</span><span class="code_number">1</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_function">facts</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*問(4)の「λ&gt;-1」の条件を削除し，確認する．*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o12)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>kind</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>λ</mi>
+<mi>,</mi>
+<mi>real</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">cos</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o13)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mi>s</mi>
+<mrow><msup><mi>λ</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 6:
+<br>
+  <img src="Rei1_1_htmlimg/Rei1_1_17.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">sin</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o14)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mi>λ</mi>
+<mrow><msup><mi>λ</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+</mfrac>
+</math>
+</div>
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="Rei1_1_htmlimg/Rei1_1.wxmx">here</a>.</small>
+ </body>
+</html>

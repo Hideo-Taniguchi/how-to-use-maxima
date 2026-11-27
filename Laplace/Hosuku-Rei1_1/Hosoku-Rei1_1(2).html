@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Hosoku-Rei1_1(2)</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="Hosoku-Rei1_1(2)_htmlimg/Hosoku-Rei1_1(2).css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Subsubsection cell -->
+
+
+<div class="subsubsect">
+<p>
+  0.0.1 ［補足］「ラプラス変換が存在するsの範囲」も求める場合．
+</p>
+</div>
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 1:
+<br>
+  <img src="Hosoku-Rei1_1(2)_htmlimg/Hosoku-Rei1_1(2)_0.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span> <span class="code_endofline">;</span> <span class="code_comment">/*定数の仮定*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>λ</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*ヘビサイドの単位関数*/</span><span class="code_endofline"><br>
+</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_function">hstep</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">−</span><span class="code_variable">λ</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>t</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<mrow><mi>hstep</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>t</mi>
+<mo>-</mo><mi>λ</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*ヘビサイドの単位関数で，hstep(0+ε)とするための変数．広義積分のため．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">ε</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>ε</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">T</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>T</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i5)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*ラプラス変換の定義式において，積分の上限∞をTと置きかえた場合．</span><span class="code_comment"><br>
+</span><span class="code_comment">今回は，下限をλ+εにしている．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">LT</span><span class="code_operator">:</span> <span class="code_function">integrate</span><span class="code_operator">(</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">·</span><span class="code_variable">%e</span><span class="code_operator">^</span><span class="code_operator">(</span><span class="code_operator">−</span><span class="code_variable">s</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">λ</span><span class="code_operator">+</span><span class="code_variable">ε</span><span class="code_endofline">,</span> <span class="code_variable">T</span><span class="code_operator">)</span> <span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(LT)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><munderover><mo>&#x222B;</mo><mrow><mi>λ</mi>
+<mo>+</mo>
+<mi>ε</mi>
+</mrow>
+<mi>T</mi>
+</munderover>
+<mrow><msup><mi>%e</mi>
+<mrow><mo>-</mo>
+<mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>t</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</msup>
+<mo>&#8290;</mo>
+<mrow><mo>(</mo><mrow><mn>1</mn>
+<mo>-</mo><mrow><mi>hstep</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>λ</mi>
+<mo>-</mo><mi>t</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+<mrow><mi>d</mi>
+<mi>t</mi>
+</mrow>
+</mrow></math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【Maximaコマンド】</span><span class="code_comment"><br>
+</span><span class="code_comment">changevar(式, g(x,y), y, x)</span><span class="code_comment"><br>
+</span><span class="code_comment">式中のxに関する積分を，g(x,y)=0によって，yに関する積分に変換する．</span><span class="code_comment"><br>
+</span><span class="code_comment">*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i6)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*変数の置換．τ=t-λ*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">LT2</span><span class="code_operator">:</span> <span class="code_function">changevar</span><span class="code_operator">(</span><span class="code_variable">LT</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_operator">−</span><span class="code_variable">τ</span><span class="code_operator">−</span><span class="code_variable">λ</span><span class="code_endofline">,</span> <span class="code_variable">τ</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*積分の変数変換*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(LT2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><munderover><mo>&#x222B;</mo><mi>ε</mi>
+<mrow><mi>T</mi>
+<mo>-</mo><mi>λ</mi>
+</mrow>
+</munderover>
+<mrow><msup><mi>%e</mi>
+<mrow><mo>-</mo><mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>τ</mi>
+</mrow>
+<mo>)</mo></mrow>
+<mo>-</mo><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>λ</mi>
+</mrow>
+</msup>
+<mo>&#8290;</mo>
+<mrow><mi>hstep</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>τ</mi>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+<mrow><mi>d</mi>
+<mi>τ</mi>
+</mrow>
+</mrow></math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i7)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*被積分関数の内，hstep(τ)は，区間[ε,T-λ]で1なので，1に置きかえる．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">LT3</span><span class="code_operator">:</span> <span class="code_function">substpart</span><span class="code_operator">(</span><span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_variable">LT2</span><span class="code_endofline">,</span> <span class="code_number">1</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(LT3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><munderover><mo>&#x222B;</mo><mi>ε</mi>
+<mrow><mi>T</mi>
+<mo>-</mo><mi>λ</mi>
+</mrow>
+</munderover>
+<msup><mi>%e</mi>
+<mrow><mo>-</mo><mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>τ</mi>
+</mrow>
+<mo>)</mo></mrow>
+<mo>-</mo><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>λ</mi>
+</mrow>
+</msup>
+<mrow><mi>d</mi>
+<mi>τ</mi>
+</mrow>
+</mrow></math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i8)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*LT3の積分を強制的に評価する*/</span><span class="code_endofline"><br>
+</span><span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">LT3</span><span class="code_endofline">,</span> <span class="code_variable">risch</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o8)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mfrac><msup><mi>%e</mi>
+<mrow><mo>-</mo><mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>λ</mi>
+</mrow>
+<mo>)</mo></mrow>
+<mo>-</mo><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>ε</mi>
+</mrow>
+</msup>
+<mi>s</mi>
+</mfrac>
+<mo>-</mo><mfrac><msup><mi>%e</mi>
+<mrow><mo>-</mo>
+<mrow><mo>(</mo><mrow><mi>T</mi>
+<mo>&#8290;</mo>
+<mi>s</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</msup>
+<mi>s</mi>
+</mfrac>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i9)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*ε→0の極限をとる．*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">LT4</span><span class="code_operator">:</span> <span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">%</span><span class="code_endofline">,</span> <span class="code_variable">ε</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(LT4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mfrac><msup><mi>%e</mi>
+<mrow><mo>-</mo>
+<mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>λ</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</msup>
+<mi>s</mi>
+</mfrac>
+<mo>-</mo><mfrac><msup><mi>%e</mi>
+<mrow><mo>-</mo>
+<mrow><mo>(</mo><mrow><mi>T</mi>
+<mo>&#8290;</mo>
+<mi>s</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</msup>
+<mi>s</mi>
+</mfrac>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*T→∞の場合，s&lt;0だと上式の第2項目の指数関数が∞になるので，積分は収束しない．</span><span class="code_comment"><br>
+</span><span class="code_comment">また，s=0だと，0/0になるので，積分は収束しない．</span><span class="code_comment"><br>
+</span><span class="code_comment">したがって，ラプラス変換が存在するsの範囲は，s&gt;0となる．【答え】*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*一応，LT4の極限を調べると，(s&gt;0の場合の式が，ラプラス変換した式である．)*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i10)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*s&gt;0の場合*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">LT4</span><span class="code_endofline">,</span> <span class="code_variable">T</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*「p」と答えること*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="left">
+<mtr><mtd><mtext></mtext></mtd><mtd><mo>Is </mo>
+<mi>s</mi>
+<mo> positive, negative or zero?</mo>
+</mtd></mtr>
+</mtable></math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o10)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><msup><mi>%e</mi>
+<mrow><mo>-</mo>
+<mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>λ</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</msup>
+<mi>s</mi>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i11)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*s&lt;0の場合*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">LT4</span><span class="code_endofline">,</span> <span class="code_variable">T</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*「n」と答えること*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="left">
+<mtr><mtd><mtext></mtext></mtd><mtd><mo>Is </mo>
+<mi>s</mi>
+<mo> positive, negative or zero?</mo>
+</mtd></mtr>
+</mtable></math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o11)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>inf</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i12)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*s=0の場合*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">LT4</span><span class="code_endofline">,</span> <span class="code_variable">T</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*「z」と答えること*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="left">
+<mtr><mtd><mtext></mtext></mtd><mtd><mo>Is </mo>
+<mi>s</mi>
+<mo> positive, negative or zero?</mo>
+</mtd></mtr>
+<mtr columnalign="left"><mtd><mtext></mtext></mtd><mtd><mo>expt: undefined: 0 to a negative exponent.</mo>
+</mtd></mtr>
+<mtr columnalign="left"><mtd><mtext></mtext></mtd><mtd><mo> -- an error. To debug this try: debugmode(true);</mo>
+</mtd></mtr>
+</mtable></math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*以上より，%o10が求める答えで，ラプラス変換が存在するsの範囲は，s&gt;0となる．*/</span>  </span></td>
+</tr></table>
+
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="Hosoku-Rei1_1(2)_htmlimg/Hosoku-Rei1_1(2).wxmx">here</a>.</small>
+ </body>
+</html>

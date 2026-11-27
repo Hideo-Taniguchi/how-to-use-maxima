@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Rei1_2(1)</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="Rei1_2(1)_htmlimg/Rei1_2(1).css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 1:
+<br>
+  <img src="Rei1_2(1)_htmlimg/Rei1_2(1)_0.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">T</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span> <span class="code_endofline">;</span> <span class="code_comment">/*定数の仮定*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>T</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_variable">%e</span><span class="code_operator">^</span><span class="code_operator">(</span><span class="code_operator">−</span><span class="code_variable">t</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*関数f(t)の定義*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>t</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<msup><mi>%e</mi>
+<mrow><mo>-</mo>
+<msup><mi>t</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+</msup>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【Maximaコマンド】</span><span class="code_comment"><br>
+</span><span class="code_comment">積分：integrate(被積分関数, 変数, 下限, 上限)</span><span class="code_comment"><br>
+</span><span class="code_comment">*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*関数f(t)のラプラス変換に似た式 (Tを∞に置き換えると，ラプラス変換の式になる．)*/</span><span class="code_endofline"><br>
+</span><span class="code_operator">'</span><span class="code_function">integrate</span><span class="code_operator">(</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span> <span class="code_operator">·</span> <span class="code_variable">%e</span><span class="code_operator">^</span><span class="code_operator">(</span><span class="code_operator">−</span><span class="code_variable">s</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">T</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><munderover><mo>&#x222B;</mo><mn>0</mn>
+<mi>T</mi>
+</munderover>
+<msup><mi>%e</mi>
+<mrow><mo>-</mo><msup><mi>t</mi>
+<mn>2</mn>
+</msup>
+<mo>-</mo><mi>s</mi>
+<mo>&#8290;</mo>
+<mi>t</mi>
+</mrow>
+</msup>
+<mrow><mi>d</mi>
+<mi>t</mi>
+</mrow>
+</mrow></math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*上式の積分の実行*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">eq1</span><span class="code_operator">:</span> <span class="code_function">ev</span><span class="code_operator">(</span><span class="code_variable">%</span><span class="code_endofline">,</span> <span class="code_variable">integrate</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(eq1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mfrac><mrow><msup><mi>%e</mi>
+<mfrac><msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+<mn>4</mn>
+</mfrac>
+</msup>
+<mo>&#8290;</mo>
+<msqrt><mi>π</mi>
+</msqrt>
+<mo>&#8290;</mo>
+<mrow><mi>erf</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mfrac><mrow><mi>s</mi>
+<mo>+</mo>
+<mn>2</mn>
+<mo>&#8290;</mo>
+<mi>T</mi>
+</mrow>
+<mn>2</mn>
+</mfrac>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+<mn>2</mn>
+</mfrac>
+<mo>-</mo><mfrac><mrow><msup><mi>%e</mi>
+<mfrac><msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+<mn>4</mn>
+</mfrac>
+</msup>
+<mo>&#8290;</mo>
+<msqrt><mi>π</mi>
+</msqrt>
+<mo>&#8290;</mo>
+<mrow><mi>erf</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mfrac><mi>s</mi>
+<mn>2</mn>
+</mfrac>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+<mn>2</mn>
+</mfrac>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i5)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*eq1において，T→∞の極限を取る．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">eq1</span><span class="code_endofline">,</span> <span class="code_variable">T</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o5)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mfrac><mrow><msup><mi>%e</mi>
+<mfrac><msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+<mn>4</mn>
+</mfrac>
+</msup>
+<mo>&#8290;</mo>
+<msqrt><mi>π</mi>
+</msqrt>
+</mrow>
+<mn>2</mn>
+</mfrac>
+<mo>-</mo><mfrac><mrow><msup><mi>%e</mi>
+<mfrac><msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+<mn>4</mn>
+</mfrac>
+</msup>
+<mo>&#8290;</mo>
+<msqrt><mi>π</mi>
+</msqrt>
+<mo>&#8290;</mo>
+<mrow><mi>erf</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mfrac><mi>s</mi>
+<mn>2</mn>
+</mfrac>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+<mn>2</mn>
+</mfrac>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i6)	
+  </span></td>
+  <td><span class="input">
+<span class="code_variable">Lf</span><span class="code_operator">:</span> <span class="code_function">factor</span><span class="code_operator">(</span><span class="code_variable">%</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*上式を因数分解する．*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(Lf)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mrow><mo>(</mo><mfrac><mrow><msup><mi>%e</mi>
+<mfrac><msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+<mn>4</mn>
+</mfrac>
+</msup>
+<mo>&#8290;</mo>
+<msqrt><mi>π</mi>
+</msqrt>
+<mo>&#8290;</mo>
+<mrow><mo>(</mo><mrow><mrow><mi>erf</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mfrac><mi>s</mi>
+<mn>2</mn>
+</mfrac>
+<mo>)</mo></mrow>
+</mrow>
+<mo>-</mo><mn>1</mn>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+<mn>2</mn>
+</mfrac>
+<mo>)</mo></mrow>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*上式は，問いの関数のラプラス変換の結果である．</span><span class="code_comment"><br>
+</span><span class="code_comment">-∞&lt;s&lt;∞において，-∞&lt;Lf&lt;∞となるので，ラプラス変換の存在する範囲は，</span><span class="code_comment"><br>
+</span><span class="code_comment">-∞&lt;s&lt;∞となる．【答え】*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i7)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【参考】Maxmaでは，Lfのs→∞の極限は，表すことができない．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">Lf</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o7)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>0</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i8)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【参考】*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_function">erf</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">/</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o8)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i9)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【参考】*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_function">erf</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">/</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_operator">−</span><span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o9)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mn>1</mn>
+</mrow>
+</math>
+</div>
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="Rei1_2(1)_htmlimg/Rei1_2(1).wxmx">here</a>.</small>
+ </body>
+</html>

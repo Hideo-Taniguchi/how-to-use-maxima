@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Symbol_Property</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="Symbol_Property_htmlimg/Symbol_Property.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Subsubsection cell -->
+
+
+<div class="subsubsect">
+<p>
+  0.0.1 記号の「数値属性」の宣言
+</p>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
+</span><span class="code_comment">Maximaでは，未宣言の記号（変数）は，デフォルトで実数（real）として扱われる．</span><span class="code_comment"><br>
+</span><span class="code_comment">たまに使うのは，integer (整数)．</span><span class="code_comment"><br>
+</span><span class="code_comment">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
+</span><span class="code_comment">【例１】 記号「n」を整数とする場合</span><span class="code_comment"><br>
+</span><span class="code_comment">－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/</span><span class="code_endofline"><br>
+</span><span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">n</span><span class="code_endofline">,</span> <span class="code_variable">integer</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*nを整数として定義*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">sin</span><span class="code_operator">(</span><span class="code_variable">n</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*sin(n*π)*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>0</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">cos</span><span class="code_operator">(</span><span class="code_operator">(</span><span class="code_number">2</span><span class="code_operator">·</span><span class="code_variable">n</span><span class="code_operator">+</span><span class="code_number">1</span><span class="code_operator">)</span><span class="code_operator">·</span><span class="code_variable">%pi</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*cos((2*n+1)*π)*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mn>1</mn>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">all</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*変数の設定解除*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o0)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Subsubsection cell -->
+
+
+<div class="subsubsect">
+<p>
+  0.0.2 値の範囲の指定と解除：assume，forget
+</p>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
+</span><span class="code_comment">たまに，値の場合分けをして計算しなければならない場合がある．</span><span class="code_comment"><br>
+</span><span class="code_comment">【論理式の例】</span><span class="code_comment"><br>
+</span><span class="code_comment">　x ＞ y ： assume(x &gt; y)</span><span class="code_comment"><br>
+</span><span class="code_comment">　x ＜ y ： assume(x &lt; y)</span><span class="code_comment"><br>
+</span><span class="code_comment">　x ＝ y ： assume(equal(x, y))</span><span class="code_comment"><br>
+</span><span class="code_comment">　x ≠ y ： assume(notequal(x, y))</span><span class="code_comment"><br>
+</span><span class="code_comment">　x ≧ y ： assume(x &gt;= y)</span><span class="code_comment"><br>
+</span><span class="code_comment">　x ≦ y ： assume(x &lt;= y)</span><span class="code_comment"><br>
+</span><span class="code_comment">－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【例２】 x&gt;0, y&lt;0, z&lt;0 の場合*/</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">x</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/* x&gt;0 と仮定する*/</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">y</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">z</span> <span class="code_endofline">&lt;</span> <span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/* y&gt;0 かつ z&lt;0 と仮定する*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>x</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>y</mi>
+<mo>&gt;</mo><mn>0</mn>
+<mi>,</mi>
+<mi>z</mi>
+<mo>&lt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">facts</span><span class="code_operator">(</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*現在の仮定の表示*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>x</mi>
+<mo>&gt;</mo><mn>0</mn>
+<mi>,</mi>
+<mi>y</mi>
+<mo>&gt;</mo><mn>0</mn>
+<mi>,</mi>
+<mn>0</mn>
+<mo>&gt;</mo><mi>z</mi>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">forget</span><span class="code_operator">(</span><span class="code_variable">z</span> <span class="code_endofline">&lt;</span> <span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*仮定(z&lt;0)の解除*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>z</mi>
+<mo>&lt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i5)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">facts</span><span class="code_operator">(</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*現在の全仮定の表示*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o5)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>x</mi>
+<mo>&gt;</mo><mn>0</mn>
+<mi>,</mi>
+<mi>y</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i6)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*(個別にforgetするのが面倒な場合 (「%%」は，( )内の左の結果を参照するもの) )</span><span class="code_comment"><br>
+</span><span class="code_comment">現在の全仮定を全て解除(無効)にする．*/</span><span class="code_endofline"><br>
+</span><span class="code_operator">(</span><span class="code_function">facts</span><span class="code_operator">(</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_function">forget</span><span class="code_operator">(</span><span class="code_variable">%%</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o6)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mo>[</mo><mrow><mi>x</mi>
+<mo>&gt;</mo><mn>0</mn>
+<mi>,</mi>
+<mi>y</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i7)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">facts</span><span class="code_operator">(</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*現在の全仮定の表示*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o7)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i9)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【例３】 a&gt;0 かつ |x| &lt; a の場合*/</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">a</span> <span class="code_endofline">&gt;</span> <span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/* a&gt;0 と仮定する*/</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">x</span> <span class="code_endofline">&gt;</span> <span class="code_operator">−</span><span class="code_variable">a</span> <span class="code_function">and</span> <span class="code_variable">x</span> <span class="code_endofline">&lt;</span> <span class="code_variable">a</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/* |x| &lt; a と仮定する*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o8)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>a</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o9)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>x</mi>
+<mo>+</mo>
+<mi>a</mi>
+<mo>&gt;</mo><mn>0</mn>
+<mi>,</mi>
+<mi>a</mi>
+<mo>&gt;</mo><mi>x</mi>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i10)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*フーリエ積分の問題．(積分値は1)*/</span><span class="code_endofline"><br>
+</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_number">2</span><span class="code_operator">/</span><span class="code_variable">%pi</span> <span class="code_operator">·</span> <span class="code_function">integrate</span><span class="code_operator">(</span><span class="code_function">sin</span><span class="code_operator">(</span><span class="code_variable">a</span><span class="code_operator">·</span><span class="code_variable">τ</span><span class="code_operator">)</span> <span class="code_operator">·</span> <span class="code_function">cos</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">·</span><span class="code_variable">τ</span><span class="code_operator">)</span><span class="code_operator">/</span><span class="code_variable">τ</span><span class="code_endofline">,</span> <span class="code_variable">τ</span><span class="code_endofline">,</span> <span class="code_number">0</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o10)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<mfrac><mn>2</mn>
+<mi>π</mi>
+</mfrac>
+<mo>&#8290;</mo>
+<mrow><munderover><mo>&#x222B;</mo><mn>0</mn>
+<mi>inf</mi>
+</munderover>
+<mfrac><mrow><mrow><mi>sin</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>a</mi>
+<mo>&#8290;</mo>
+<mi>τ</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+<mo>&#8290;</mo>
+<mrow><mi>cos</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>x</mi>
+<mo>&#8290;</mo>
+<mi>τ</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+<mi>τ</mi>
+</mfrac>
+<mrow><mi>d</mi>
+<mi>τ</mi>
+</mrow>
+</mrow></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i11)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*上記の積分の実行．</span><span class="code_comment"><br>
+</span><span class="code_comment">ただし，xの範囲(正, 負, 0)を尋ねられるのが煩わしい．とりあえず，p(正)と回答．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">;</span>    </span></td>
+</tr></table>
+<div class="equation">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="left">
+<mtr><mtd><mtext></mtext></mtd><mtd><mo>Is </mo>
+<mi>x</mi>
+<mo> positive, negative or zero?</mo>
+</mtd></mtr>
+</mtable></math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o11)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i12)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*再び，f(x)の右辺の積分の実行．今度は，問い合わせにn(負)と回答．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">;</span>    </span></td>
+</tr></table>
+<div class="equation">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="left">
+<mtr><mtd><mtext></mtext></mtd><mtd><mo>Is </mo>
+<mi>x</mi>
+<mo> positive, negative or zero?</mo>
+</mtd></mtr>
+</mtable></math>
+</div>
+<div class="equation">
+  <span class="eqlabel">(%o12)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i13)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*現在の全仮定を全て解除(無効)にする．*/</span><span class="code_endofline"><br>
+</span><span class="code_operator">(</span><span class="code_function">facts</span><span class="code_operator">(</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_function">forget</span><span class="code_operator">(</span><span class="code_variable">%%</span><span class="code_operator">)</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o13)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mo>[</mo><mrow><mi>a</mi>
+<mo>&gt;</mo><mn>0</mn>
+<mi>,</mi>
+<mi>x</mi>
+<mo>+</mo>
+<mi>a</mi>
+<mo>&gt;</mo><mn>0</mn>
+<mi>,</mi>
+<mi>a</mi>
+<mo>&gt;</mo><mi>x</mi>
+</mrow>
+<mo>]</mo></mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i14)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">facts</span><span class="code_operator">(</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*現在の全仮定の表示*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o14)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i15)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">all</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*変数の設定解除*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o0)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Subsubsection cell -->
+
+
+<div class="subsubsect">
+<p>
+  0.0.3 記号の「型の属性」の宣言：declare(型の属性, 記号)
+</p>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
+</span><span class="code_comment">Maximaにおける通常の記号は，デフォルトでスカラー変数として扱われる．</span><span class="code_comment"><br>
+</span><span class="code_comment">ただし，delare(a, constant)と「aは定数」と宣言しなくても，</span><span class="code_comment"><br>
+</span><span class="code_comment">diff(a*x, x)のような微分演算では a は定数のように扱われる．</span><span class="code_comment"><br>
+</span><span class="code_comment">(ゆえに，declare(変数, constant) は，あまりニーズがない．)</span><span class="code_comment"><br>
+</span><span class="code_comment">【型の属性の種類】</span><span class="code_comment"><br>
+</span><span class="code_comment">　　scalar ：スカラー</span><span class="code_comment"><br>
+</span><span class="code_comment">　　nonscalar ：スカラーではない</span><span class="code_comment"><br>
+</span><span class="code_comment">　　constant ：定数</span><span class="code_comment"><br>
+</span><span class="code_comment">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
+</span><span class="code_comment">【例１】 特に記号を定数と宣言しなくても，定数のように扱われる例 (微分，積分)</span><span class="code_comment"><br>
+</span><span class="code_comment">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">f</span><span class="code_operator">:</span> <span class="code_variable">a</span><span class="code_operator">·</span><span class="code_variable">x</span><span class="code_operator">^</span><span class="code_number">2</span> <span class="code_operator">+</span> <span class="code_variable">b</span><span class="code_operator">·</span><span class="code_variable">x</span> <span class="code_operator">+</span> <span class="code_variable">c</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(f)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>a</mi>
+<mo>&#8290;</mo>
+<msup><mi>x</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<mi>b</mi>
+<mo>&#8290;</mo>
+<mi>x</mi>
+<mo>+</mo>
+<mi>c</mi>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">diff</span><span class="code_operator">(</span><span class="code_variable">f</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*xによる微分*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mn>2</mn>
+<mo>&#8290;</mo>
+<mi>a</mi>
+<mo>&#8290;</mo>
+<mi>x</mi>
+<mo>+</mo>
+<mi>b</mi>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">integrate</span><span class="code_operator">(</span><span class="code_variable">f</span><span class="code_endofline">,</span> <span class="code_variable">x</span><span class="code_operator">)</span><span class="code_endofline">;</span> <span class="code_comment">/*xによる積分 (Maximaのintegrate関数では積分定数が付きません)*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mfrac><mrow><mi>a</mi>
+<mo>&#8290;</mo>
+<msup><mi>x</mi>
+<mn>3</mn>
+</msup>
+</mrow>
+<mn>3</mn>
+</mfrac>
+<mo>+</mo>
+<mfrac><mrow><mi>b</mi>
+<mo>&#8290;</mo>
+<msup><mi>x</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+<mn>2</mn>
+</mfrac>
+<mo>+</mo>
+<mi>c</mi>
+<mo>&#8290;</mo>
+<mi>x</mi>
+</mrow>
+</math>
+</div>
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ <small> The source of this Maxima session can be downloaded <a href="Symbol_Property_htmlimg/Symbol_Property.wxmx">here</a>.</small>
+ </body>
+</html>

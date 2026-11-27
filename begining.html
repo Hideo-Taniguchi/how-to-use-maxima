@@ -31,7 +31,7 @@
             <h3><a href="./01Begining/value_set.html" target="_blank">変数への「値や式」の設定(代入)</a></h3>
             <ul>
                 <li>変数への「値や式」の設定(代入)は，「 <font COLOR="#ff0000">:</font> 」(<font COLOR="#ff0000">コロン</font>)を使う．</li>
-                <li>変数の設定を解除するには，<font COLOR="#ff0000">kill関数</font>を使う．</li>
+                <li>変数の設定を解除するには，<font COLOR="#ff0000">kill関数</font>を使う．全解除は，kill(all)．</li>
             </ul>
 
             <h3><a href="./01Begining/function_definition.html" target="_blank">数学の関数の定義</a></h3>
@@ -54,6 +54,13 @@
                 <li>ネイピア数（自然対数の底）<math><mi>e</mi></math> は，「<font COLOR="#ff0000">%e</font>」である．</li>
                 <li>虚数単位 <math><mi>i</mi></math> は，「<font COLOR="#ff0000">%i</font>」である．</li>
                 <li>正の実無限大∞は，「<font COLOR="#ff0000">inf</font>」である．</li>
+            </ul>
+
+            <h3><a href="./01Begining/Symbol_Property.html" target="_blank">記号の「数値属性」の宣言，値の範囲の指定と解除，他</a></h3>
+            <ul>
+                <li><math><mi>n</mi></math> を整数と宣言したい場合は，declare(n, integer)</li>
+                <li><math><mi>a</mi></math> &gt 0 と仮定したい場合は，assume(a &gt 0)</li>
+                <li>全ての記号に対して仮定した条件を解除する場合は，(facts(), forget(%%))</li>
             </ul>
 
 

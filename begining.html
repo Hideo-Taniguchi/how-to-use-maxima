@@ -56,11 +56,12 @@
                 <li>正の実無限大∞は，「<font COLOR="#ff0000">inf</font>」である．</li>
             </ul>
 
-            <h3><a href="./01Begining/Symbol_Property.html" target="_blank">記号の「数値属性」の宣言，値の範囲の指定と解除，他</a></h3>
+            <h3><a href="./01Begining/Symbol_Property.html" target="_blank">記号の「数値属性」の宣言，値の範囲の指定と解除，記号の「型の属性」の宣言</a></h3>
             <ul>
                 <li><math><mi>n</mi></math> を整数と宣言したい場合は，declare(n, integer)</li>
                 <li><math><mi>a</mi></math> &gt 0 と仮定したい場合は，assume(a &gt 0)</li>
                 <li>全ての記号に対して仮定した条件を解除する場合は，(facts(), forget(%%))</li>
+                <li>定数扱いの記号は，declare(記号, constant) によって，記号の並びが都合良くなる．</li>
             </ul>
 
 

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Rei2_3</title>
+  <meta name="generator" content="wxMaxima">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="Rei2_3_htmlimg/Rei2_3.css">
+ </head>
+ <body>
+
+<!-- ****************************************************** -->
+<!-- *        Created with wxMaxima version 26.08.0       * -->
+<!-- ****************************************************** -->
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 1:
+<br>
+  <img src="Rei2_3_htmlimg/Rei2_3_0.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*記号の並びのために，あえて宣言する．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">μ</span><span class="code_endofline">,</span> <span class="code_variable">constant</span><span class="code_operator">)</span><span class="code_endofline">;</span>   <span class="code_comment">/*μを定数として宣言*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o1)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i2)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">n</span><span class="code_endofline">,</span> <span class="code_variable">integer</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*nを整数として宣言*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">n</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*記号の仮定*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>n</mi>
+<mo>&gt;</mo><mn>0</mn>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i4)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_variable">%e</span><span class="code_operator">^</span><span class="code_operator">(</span><span class="code_variable">μ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span> <span class="code_operator">·</span> <span class="code_variable">t</span><span class="code_operator">^</span><span class="code_variable">n</span><span class="code_endofline">;</span>  <span class="code_comment">/*関数の定義*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>t</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<msup><mi>%e</mi>
+<mrow><mi>μ</mi>
+<mo>&#8290;</mo>
+<mi>t</mi>
+</mrow>
+</msup>
+<mo>&#8290;</mo>
+<msup><mi>t</mi>
+<mi>n</mi>
+</msup>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i5)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*関数f(t)のラプラス変換*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">LT</span><span class="code_operator">:</span> <span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(LT)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>γ</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>n</mi>
+<mo>+</mo>
+<mn>1</mn>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+<mo>&#8290;</mo>
+<msup><mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>-</mo><mi>μ</mi>
+</mrow>
+<mo>)</mo></mrow>
+<mrow><mo>-</mo><mi>n</mi>
+<mo>-</mo><mn>1</mn>
+</mrow>
+</msup>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*-----上式が設問(1)の答え-----*/</span><span class="code_endofline"><br>
+</span><span class="code_comment">/*Maximaでは，Γ(n+1)は，n! には変換されない．*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 2:
+<br>
+  <img src="Rei2_3_htmlimg/Rei2_3_6.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i6)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*記号の並びのために，あえて宣言する．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">,</span> <span class="code_variable">constant</span><span class="code_operator">)</span><span class="code_endofline">;</span>   <span class="code_comment">/*λを定数として宣言*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o6)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i7)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_variable">%e</span><span class="code_operator">^</span><span class="code_operator">(</span><span class="code_variable">μ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span> <span class="code_operator">·</span> <span class="code_function">cos</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*関数の定義*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o7)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>t</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<msup><mi>%e</mi>
+<mrow><mi>μ</mi>
+<mo>&#8290;</mo>
+<mi>t</mi>
+</mrow>
+</msup>
+<mo>&#8290;</mo>
+<mrow><mi>cos</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>λ</mi>
+<mo>&#8290;</mo>
+<mi>t</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i8)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*関数f(t)のラプラス変換*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">LT</span><span class="code_operator">:</span> <span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(LT)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mrow><mi>s</mi>
+<mo>-</mo><mi>μ</mi>
+</mrow>
+<mrow><msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+<mo>-</mo><mn>2</mn>
+<mo>&#8290;</mo>
+<mi>μ</mi>
+<mo>&#8290;</mo>
+<mi>s</mi>
+<mo>+</mo>
+<msup><mi>μ</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<msup><mi>λ</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【コメント】この場合，factorでは，因数分解が行われない．</span><span class="code_comment"><br>
+</span><span class="code_comment">分母を抽出して，factorsumを適用すると，目的の因数分解が可能であった．*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i9)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*LTの分母をグループ単位で因数分解して置き換える．</span><span class="code_comment"><br>
+</span><span class="code_comment">(上式の場合，番号「1」が分子，番号「2」が分母を指す．) */</span><span class="code_endofline"><br>
+</span><span class="code_function">substpart</span><span class="code_operator">(</span><span class="code_function">factorsum</span><span class="code_operator">(</span><span class="code_variable">piece</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">LT</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o9)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mrow><mi>s</mi>
+<mo>-</mo><mi>μ</mi>
+</mrow>
+<mrow><msup><mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>-</mo><mi>μ</mi>
+</mrow>
+<mo>)</mo></mrow>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<msup><mi>λ</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*-----上式が設問(2)の答え-----*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Image cell -->
+
+
+<div class="image">
+図 3:
+<br>
+  <img src="Rei2_3_htmlimg/Rei2_3_11.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i10)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span> <span class="code_variable">%e</span><span class="code_operator">^</span><span class="code_operator">(</span><span class="code_variable">μ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span> <span class="code_operator">·</span> <span class="code_function">sin</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*関数の定義*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o10)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mi>t</mi>
+<mo>)</mo></mrow>
+</mrow>
+<mi>:=</mi>
+<msup><mi>%e</mi>
+<mrow><mi>μ</mi>
+<mo>&#8290;</mo>
+<mi>t</mi>
+</mrow>
+</msup>
+<mo>&#8290;</mo>
+<mrow><mi>sin</mi>
+<mo>&#x2061;</mo><mrow><mo>(</mo><mrow><mi>λ</mi>
+<mo>&#8290;</mo>
+<mi>t</mi>
+</mrow>
+<mo>)</mo></mrow>
+</mrow>
+</mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i11)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*関数f(t)のラプラス変換*/</span><span class="code_endofline"><br>
+</span><span class="code_variable">LT</span><span class="code_operator">:</span> <span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(LT)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mi>λ</mi>
+<mrow><msup><mi>s</mi>
+<mn>2</mn>
+</msup>
+<mo>-</mo><mn>2</mn>
+<mo>&#8290;</mo>
+<mi>μ</mi>
+<mo>&#8290;</mo>
+<mi>s</mi>
+<mo>+</mo>
+<msup><mi>μ</mi>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<msup><mi>λ</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【コメント】この場合，factorでは，因数分解が行われない．</span><span class="code_comment"><br>
+</span><span class="code_comment">分母を抽出して，factorsumを適用すると，目的の因数分解が可能であった．*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i12)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*LTの分母をグループ単位で因数分解して置き換える．</span><span class="code_comment"><br>
+</span><span class="code_comment">(上式の場合，番号「1」が分子，番号「2」が分母を指す．) */</span><span class="code_endofline"><br>
+</span><span class="code_function">substpart</span><span class="code_operator">(</span><span class="code_function">factorsum</span><span class="code_operator">(</span><span class="code_variable">piece</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">LT</span><span class="code_endofline">,</span> <span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o12)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mi>λ</mi>
+<mrow><msup><mrow><mo>(</mo><mrow><mi>s</mi>
+<mo>-</mo><mi>μ</mi>
+</mrow>
+<mo>)</mo></mrow>
+<mn>2</mn>
+</msup>
+<mo>+</mo>
+<msup><mi>λ</mi>
+<mn>2</mn>
+</msup>
+</mrow>
+</mfrac>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*-----上式が設問(3)の答え-----*/</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+
+
+ <hr>
+ <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
+ </body>
+</html>

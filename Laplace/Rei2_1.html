@@ -31,14 +31,12 @@
 (%i1)	
   </span></td>
   <td><span class="input">
-<span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*記号の仮定*/</span>  </span></td>
+<span class="code_comment">/*記号の並びのために，あえて宣言する．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">,</span> <span class="code_variable">constant</span><span class="code_operator">)</span><span class="code_endofline">;</span>   <span class="code_comment">/*λを定数として宣言*/</span>  </span></td>
 </tr></table>
 <div class="equation">
   <span class="eqlabel">(%o1)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>λ</mi>
-<mo>&gt;</mo><mn>0</mn>
-</mrow>
-<mo>]</mo></mrow>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
 </math>
 </div>
 
@@ -51,10 +49,30 @@
 (%i2)	
   </span></td>
   <td><span class="input">
-<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span><span class="code_function">cosh</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*関数の定義*/</span>  </span></td>
+<span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*記号の仮定*/</span>  </span></td>
 </tr></table>
 <div class="equation">
   <span class="eqlabel">(%o2)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mn>0</mn>
+<mo>&lt;</mo><mi>λ</mi>
+</mrow>
+<mo>]</mo></mrow>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i3)	
+  </span></td>
+  <td><span class="input">
+<span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span><span class="code_function">cosh</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*関数の定義*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o3)</span>
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
 <mo>&#x2061;</mo><mrow><mo>(</mo><mi>t</mi>
 <mo>)</mo></mrow>
@@ -77,25 +95,23 @@
 
 <table><tr><td>
   <span class="prompt">
-(%i3)	
+(%i4)	
   </span></td>
   <td><span class="input">
 <span class="code_comment">/*関数f(t)のラプラス変換*/</span><span class="code_endofline"><br>
 </span><span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
 </tr></table>
 <div class="equation">
-  <span class="eqlabel">(%o3)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mrow><mo>(</mo><mfrac><mi>s</mi>
-<mrow><msup><mi>λ</mi>
+  <span class="eqlabel">(%o4)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mi>s</mi>
+<mrow><msup><mi>s</mi>
 <mn>2</mn>
 </msup>
-<mo>-</mo><msup><mi>s</mi>
+<mo>-</mo><msup><mi>λ</mi>
 <mn>2</mn>
 </msup>
 </mrow>
 </mfrac>
-<mo>)</mo></mrow>
-</mrow>
 </math>
 </div>
 
@@ -119,7 +135,7 @@
 <div class="image">
 図 2:
 <br>
-  <img src="Rei2_1_htmlimg/Rei2_1_4.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
+  <img src="Rei2_1_htmlimg/Rei2_1_5.jpg" style="max-width:90%;" loading="lazy" alt="Diagram">
 </div>
 
 
@@ -128,13 +144,13 @@
 
 <table><tr><td>
   <span class="prompt">
-(%i4)	
+(%i5)	
   </span></td>
   <td><span class="input">
 <span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_operator">:</span><span class="code_operator">=</span><span class="code_function">sinh</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*関数の定義*/</span>  </span></td>
 </tr></table>
 <div class="equation">
-  <span class="eqlabel">(%o4)</span>
+  <span class="eqlabel">(%o5)</span>
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>f</mi>
 <mo>&#x2061;</mo><mrow><mo>(</mo><mi>t</mi>
 <mo>)</mo></mrow>
@@ -157,25 +173,23 @@
 
 <table><tr><td>
   <span class="prompt">
-(%i5)	
+(%i6)	
   </span></td>
   <td><span class="input">
 <span class="code_comment">/*関数f(t)のラプラス変換*/</span><span class="code_endofline"><br>
 </span><span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">f</span><span class="code_operator">(</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
 </tr></table>
 <div class="equation">
-  <span class="eqlabel">(%o5)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mrow><mo>(</mo><mfrac><mi>λ</mi>
-<mrow><msup><mi>λ</mi>
+  <span class="eqlabel">(%o6)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mi>λ</mi>
+<mrow><msup><mi>s</mi>
 <mn>2</mn>
 </msup>
-<mo>-</mo><msup><mi>s</mi>
+<mo>-</mo><msup><mi>λ</mi>
 <mn>2</mn>
 </msup>
 </mrow>
 </mfrac>
-<mo>)</mo></mrow>
-</mrow>
 </math>
 </div>
 
@@ -208,6 +222,5 @@
 
  <hr>
  <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
- <small> The source of this Maxima session can be downloaded <a href="Rei2_1_htmlimg/Rei2_1.wxmx">here</a>.</small>
  </body>
 </html>

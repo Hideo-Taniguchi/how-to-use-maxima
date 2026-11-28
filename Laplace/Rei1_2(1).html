@@ -297,12 +297,12 @@
 (%i7)	
   </span></td>
   <td><span class="input">
-<span class="code_comment">/*【参考】Maxmaでは，Lfのs→∞の極限は，表すことができない．*/</span><span class="code_endofline"><br>
-</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">Lf</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+<span class="code_comment">/*【参考】*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_function">erf</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">/</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
 </tr></table>
 <div class="equation">
   <span class="eqlabel">(%o7)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>0</mn>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
 </math>
 </div>
 
@@ -316,11 +316,12 @@
   </span></td>
   <td><span class="input">
 <span class="code_comment">/*【参考】*/</span><span class="code_endofline"><br>
-</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_function">erf</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">/</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_function">erf</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">/</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_operator">−</span><span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
 </tr></table>
 <div class="equation">
   <span class="eqlabel">(%o8)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mn>1</mn>
+</mrow>
 </math>
 </div>
 
@@ -333,18 +334,34 @@
 (%i9)	
   </span></td>
   <td><span class="input">
-<span class="code_comment">/*【参考】*/</span><span class="code_endofline"><br>
-</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_function">erf</span><span class="code_operator">(</span><span class="code_variable">s</span><span class="code_operator">/</span><span class="code_number">2</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_operator">−</span><span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+<span class="code_comment">/*【参考】 Lfのs→∞の極限は，*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">Lf</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
 </tr></table>
 <div class="equation">
   <span class="eqlabel">(%o9)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>-</mo><mn>1</mn>
-</mrow>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>0</mn>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i10)	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*【参考】 Lfのs→-∞の極限は，*/</span><span class="code_endofline"><br>
+</span><span class="code_function">limit</span><span class="code_operator">(</span><span class="code_variable">Lf</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_endofline">,</span> <span class="code_operator">−</span><span class="code_variable">inf</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o10)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>inf</mi>
 </math>
 </div>
 
  <hr>
  <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
- <small> The source of this Maxima session can be downloaded <a href="Rei1_2(1)_htmlimg/Rei1_2(1).wxmx">here</a>.</small>
  </body>
 </html>

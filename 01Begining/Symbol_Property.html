@@ -511,11 +511,11 @@
   <td><span class="input">
 <span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
 </span><span class="code_comment">(1) Maximaにおける通常の記号は，デフォルトでスカラー変数として扱われる．</span><span class="code_comment"><br>
-</span><span class="code_comment">(2) 「delare(a, constant)」と「aは定数」と宣言しなくても，</span><span class="code_comment"><br>
+</span><span class="code_comment">(2) 「delare(a, constant)」を実行しなくても，</span><span class="code_comment"><br>
 </span><span class="code_comment">　　diff(a*x, x)のような微分演算では a は定数のように扱われる．</span><span class="code_comment"><br>
-</span><span class="code_comment">(3) 「declare(変数, constant)」 は，記号の並びに影響するので，たくさんの記号を</span><span class="code_comment"><br>
-</span><span class="code_comment">　　用いて計算する場合は，宣言した方が無難である．(計算結果は変わらないが，</span><span class="code_comment"><br>
-</span><span class="code_comment"> 　　式整形の面で助かる場合が多い．)</span><span class="code_comment"><br>
+</span><span class="code_comment">(3) 「declare(変数, constant)」 は，記号の並びに影響する．</span><span class="code_comment"><br>
+</span><span class="code_comment">　　定数扱いの記号は，declare(記号, constant) を宣言していた方が良い．</span><span class="code_comment"><br>
+</span><span class="code_comment">　　そうすれば，式中の記号の並びにおいて，係数の位置に置かれるので都合が良い．</span><span class="code_comment"><br>
 </span><span class="code_comment">【型の属性の種類】</span><span class="code_comment"><br>
 </span><span class="code_comment">　　scalar ：スカラー</span><span class="code_comment"><br>
 </span><span class="code_comment">　　nonscalar ：スカラーではない</span><span class="code_comment"><br>
@@ -626,6 +626,23 @@
 (%i4)	
   </span></td>
   <td><span class="input">
+<span class="code_function">kill</span><span class="code_operator">(</span><span class="code_variable">all</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*変数の設定解除*/</span>  </span></td>
+</tr></table>
+<div class="equation">
+  <span class="eqlabel">(%o0)</span>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+</math>
+</div>
+
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+(%i1)	
+  </span></td>
+  <td><span class="input">
 <span class="code_comment">/*－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><span class="code_comment"><br>
 </span><span class="code_comment">【例２】 「declare(変数, constant)」 は，記号の並びに影響する例</span><span class="code_comment"><br>
 </span><span class="code_comment">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/</span><span class="code_endofline"><br>
@@ -648,13 +665,13 @@
 
 <table><tr><td>
   <span class="prompt">
-(%i5)	
+(%i2)	
   </span></td>
   <td><span class="input">
 <span class="code_function">expand</span><span class="code_operator">(</span><span class="code_variable">f</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
 </tr></table>
 <div class="equation">
-  <span class="eqlabel">(%o5)</span>
+  <span class="eqlabel">(%o2)</span>
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msup><mi>μ</mi>
 <mn>2</mn>
 </msup>
@@ -677,13 +694,13 @@
 
 <table><tr><td>
   <span class="prompt">
-(%i6)	
+(%i3)	
   </span></td>
   <td><span class="input">
 <span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">μ</span><span class="code_endofline">,</span> <span class="code_variable">constant</span><span class="code_operator">)</span><span class="code_endofline">;</span>  <span class="code_comment">/*μを定数として宣言*/</span>  </span></td>
 </tr></table>
 <div class="equation">
-  <span class="eqlabel">(%o6)</span>
+  <span class="eqlabel">(%o3)</span>
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
 </math>
 </div>
@@ -694,13 +711,13 @@
 
 <table><tr><td>
   <span class="prompt">
-(%i7)	
+(%i4)	
   </span></td>
   <td><span class="input">
 <span class="code_function">expand</span><span class="code_operator">(</span><span class="code_variable">f</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
 </tr></table>
 <div class="equation">
-  <span class="eqlabel">(%o7)</span>
+  <span class="eqlabel">(%o4)</span>
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msup><mi>s</mi>
 <mn>2</mn>
 </msup>
@@ -717,8 +734,21 @@
 </math>
 </div>
 
+
+<!-- Code cell -->
+
+
+<table><tr><td>
+  <span class="prompt">
+ -->	
+  </span></td>
+  <td><span class="input">
+<span class="code_comment">/*μを定数として扱いたい場合は，記号の並び的に，「delare(μ, constant)」を</span><span class="code_comment"><br>
+</span><span class="code_comment">実行していた方が良いという例．*/</span>  </span></td>
+</tr></table>
+
+
  <hr>
  <p><small> Created with <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small></p>
- <small> The source of this Maxima session can be downloaded <a href="Symbol_Property_htmlimg/Symbol_Property.wxmx">here</a>.</small>
  </body>
 </html>

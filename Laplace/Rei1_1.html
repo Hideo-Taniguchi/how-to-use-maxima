@@ -101,18 +101,12 @@
 (%i2)	
   </span></td>
   <td><span class="input">
-<span class="code_comment">/*【注意】Maximaでは，ヘビサイドの単位関数の時間のズレλについて，</span><span class="code_comment"><br>
-</span><span class="code_comment">assume(λ&gt;=0)とすると，ラプラス変換において，「IS λ negative or zero?」</span><span class="code_comment"><br>
-</span><span class="code_comment">と尋ねられ，λ&gt;0の条件が有効にならない．いわゆる，バグ．それにより，</span><span class="code_comment"><br>
-</span><span class="code_comment">模範解答の答えが得られないので，0を含めずに，assume(λ&gt;0)とする．*/</span><span class="code_endofline"><br>
-</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span> <span class="code_endofline">;</span> <span class="code_comment">/*定数の仮定*/</span>  </span></td>
+<span class="code_comment">/*記号の並びのために，あえて宣言する．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">,</span> <span class="code_variable">constant</span><span class="code_operator">)</span><span class="code_endofline">;</span>   <span class="code_comment">/*λを定数として宣言*/</span>  </span></td>
 </tr></table>
 <div class="equation">
   <span class="eqlabel">(%o2)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mi>λ</mi>
-<mo>&gt;</mo><mn>0</mn>
-</mrow>
-<mo>]</mo></mrow>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
 </math>
 </div>
 
@@ -125,12 +119,18 @@
 (%i3)	
   </span></td>
   <td><span class="input">
-<span class="code_comment">/*記号の並びのために，あえて宣言する．*/</span><span class="code_endofline"><br>
-</span><span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">,</span> <span class="code_variable">constant</span><span class="code_operator">)</span><span class="code_endofline">;</span>   <span class="code_comment">/*λを定数として宣言*/</span>  </span></td>
+<span class="code_comment">/*【注意】Maximaでは，ヘビサイドの単位関数の時間のズレλについて，</span><span class="code_comment"><br>
+</span><span class="code_comment">assume(λ&gt;=0)とすると，ラプラス変換において，「IS λ negative or zero?」</span><span class="code_comment"><br>
+</span><span class="code_comment">と尋ねられ，λ&gt;0の条件が有効にならない．いわゆる，バグ．それにより，</span><span class="code_comment"><br>
+</span><span class="code_comment">模範解答の答えが得られないので，0を含めずに，assume(λ&gt;0)とする．*/</span><span class="code_endofline"><br>
+</span><span class="code_function">assume</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">&gt;</span><span class="code_number">0</span><span class="code_operator">)</span> <span class="code_endofline">;</span> <span class="code_comment">/*定数の仮定*/</span>  </span></td>
 </tr></table>
 <div class="equation">
   <span class="eqlabel">(%o3)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mrow><mn>0</mn>
+<mo>&lt;</mo><mi>λ</mi>
+</mrow>
+<mo>]</mo></mrow>
 </math>
 </div>
 
@@ -437,27 +437,10 @@
 (%i14)	
   </span></td>
   <td><span class="input">
-<span class="code_function">declare</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_endofline">,</span> <span class="code_variable">constant</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
-</tr></table>
-<div class="equation">
-  <span class="eqlabel">(%o14)</span>
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>done</mi>
-</math>
-</div>
-
-
-<!-- Code cell -->
-
-
-<table><tr><td>
-  <span class="prompt">
-(%i15)	
-  </span></td>
-  <td><span class="input">
 <span class="code_function">laplace</span><span class="code_operator">(</span><span class="code_function">sin</span><span class="code_operator">(</span><span class="code_variable">λ</span><span class="code_operator">·</span><span class="code_variable">t</span><span class="code_operator">)</span><span class="code_endofline">,</span> <span class="code_variable">t</span><span class="code_endofline">,</span> <span class="code_variable">s</span><span class="code_operator">)</span><span class="code_endofline">;</span>  </span></td>
 </tr></table>
 <div class="equation">
-  <span class="eqlabel">(%o15)</span>
+  <span class="eqlabel">(%o14)</span>
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mi>λ</mi>
 <mrow><msup><mi>s</mi>
 <mn>2</mn>
